@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>教师评价系统</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap3.3.min.css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/normalize.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/css/sign.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/tmp.css"/>
+    <script type="text/javascript">
+    var aurl = "<?php echo U('User/login'); ?>";
+    </script>>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="center-wrapper">
+        <div class="form-wrapper">
+          <div class="logo">
+           教师评价系统
+          </div>
+
+          <div class="sign">
+            <div id="signin">
+             <button class="btn btn-default" id="newuser">新用户>></button>
+              <form class="form-horizontal" action=<?php echo U("Home/User/login"); ?> method="post">
+                <div class="form-group">
+          
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" name="user_email" placeholder="邮箱">
+                  </div>
+                </div>
+                <div class="form-group">
+                
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="user_pwd" placeholder="密码">
+                  </div>
+                </div>
+               
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">登录</button>
+                    
+                  </div>
+                </div>
+              </form>
+
+            </div>
+
+            <div id="signup">
+            <button class="btn btn-default" id="login1"><<返回登录</button>
+              <form class="form-horizontal" action=<?php  echo U("Home/User/register"); ?> method="post" enctype="multipart/form-data">
+                
+                <div class="form-group">         
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail3" name="user_name" placeholder="用户名">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" name="user_email" placeholder="邮箱">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <select id="school" name="school_id" class="select-control2" >
+                      <option selected="selected" value="">学校</option>
+                      <?php foreach ($school as $key => $value): ?>
+                      <option value=<?php echo $key ?> >
+                      <?php echo $value ?>
+                      </option>       
+                      <?php endforeach;?>
+                    </select>
+                  </div>
+                </div>
+
+                 <div class="form-group">
+                  <div class="col-sm-10">
+                    <select id="college" name="college_id" class="select-control2">
+                      <option selected="selected" value="">学院</option>
+                    </select>
+                  </div>
+                </div>
+     
+                 <div class="form-group">                             
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="user_pwd"  placeholder="密码">
+                  </div>
+                </div>
+                 <div class="form-group">
+                 
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="user_repwd"  placeholder="确认密码">
+                  </div>
+                </div>
+
+                <div class="col-sm-10">
+                    <input type="file"  id="photo" name="photo"  placeholder="请上传你的图片">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">注册</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/sign.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/login.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+body {
+  background-color:#0078d8; 
+}
+
+.wrapper {
+    width: 100%;
+}
+
+.center-wrapper {
+    margin: 0 auto;
+    width: 1040px;
+}
+
+.form-wrapper {
+    position: absolute;
+    top: 50%;
+    height: 300px;
+    margin-top: -150px;
+}
+
+.logo {
+    float:left;
+    width:550px;
+    color: white;
+    font-size: 75px;
+}
+
+.sign {
+    width:400px;
+    height:100%;
+    float:right;
+    color: white;
+    font-size:20px;
+}
+
+.sign input, button {
+  color:black;
+}
+
+#signup {
+    display: none;
+}
+
+#login, #newuser, #login1{
+margin-bottom: 5%;
+}
+
+.form-group button {
+    width: 80px;
+}

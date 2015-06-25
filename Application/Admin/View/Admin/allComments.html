@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/general.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/comment.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+ <link href="__PUBLIC__/css/lib/style.css" media="screen" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
+
+
+</head>
+<body>
+	<script type="text/javascript">
+  var user_name = '<?php echo $_SESSION['user_name']; ?>';
+  var user_manage_url = "<?php  echo U('Admin/manageUser') ?> ";
+  var comment_manage_url = "<?php  echo U('Admin/manageComment') ?> ";
+  var all_comments_url = "<?php  echo U('Admin/allComments') ?> ";
+  
+  var show_info_url = "<?php  echo U('Admin/showInfo') ?> ";
+  var logout_url = "<?php  echo U('Home/User/logout') ?> ";
+</script>
+<script type="text/javascript" src = "__PUBLIC__/js/admin_toolbar.js"></script>
+ 	<div class="wrap" id="main">
+
+
+   <div class="panel-body">
+              <!-- a comment start -->
+                <div class="comment-list clearfix" id="comments">
+                  <ol>
+                    <?php  foreach($data as $key => $value): ?>
+                    <li class="comment">
+                      <div class="comment-body">
+                        <div class="inner">
+                          <div class="comment-arrow"></div>
+                          <div class="comment-avatar">
+                            <div class="avatar">
+                               <?php  if (array_key_exists($value['username'], $usernames)){ ?>
+                          <img src="<?php  echo $usernames[$value['username']]; ?>" alt="" />
+                          <?php  } else { ?>
+                              <img src="__PUBLIC__/images/temp/man.png" alt="" />
+                              <?php } ?>
+                              <span class="time"><a href="<?php echo U('Admin/deleteComment').'?comment_id='.$value['comment_id']; ?>">删除评论</a></span>
+                               <br/>
+                              <span class="time"><a href="<?php echo U('Admin/deleteUser2').'?user_id='.$value['user_id']; ?>">删除用户</a></span>
+                            </div>
+                          </div>
+
+                          <div class="comment-text">
+                          <div class="comment-author clearfix">
+                            <a href="#" class="link-author"><?php echo $value['username'];  ?></a>
+
+                      <span class="comment_school"><?php echo $value["school"] ?></span>
+                      <span class="comment_college"><?php echo $value["college"] ?></span>
+                      <span class="comment_teacher"><?php echo $value["teacher"] ?></span>
+                      <span class="comment_course"><?php echo $value["course"] ?></span>
+                        
+                            <span class="comment-date"><?php echo $value['comment_time'];  ?></span>
+                          </div>
+                          <div class="comment-entry">
+                            <p><?php echo $value['comment_content'];  ?></p>
+                          </div>
+                          </div>
+
+                          <div class="clear"></div>
+                        </div>
+
+
+                      </div>
+                    </li>
+                  <?php endforeach; ?>
+                  </ol>
+                </div>
+          <!-- a comment end, add as many comment as you want. -->
+              </div>
+
+    
+      
+  	</div>
+</body>
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap-dropdown.js"></script>
+</html>

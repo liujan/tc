@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/css/normalize.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/general.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
+	</head>
+	<body>
+		<script type="text/javascript">
+		  var user_name = '<?php echo $_SESSION['user_name']; ?>';
+		  var user_manage_url = "<?php  echo U('Admin/manageUser') ?> ";
+		  var comment_manage_url = "<?php  echo U('Admin/manageComment') ?> ";
+		  var all_comments_url = "<?php  echo U('Admin/allComments') ?> ";
+		  var show_info_url = "<?php  echo U('Admin/showInfo') ?> ";
+		  var logout_url = "<?php  echo U('Home/User/logout') ?> ";
+		</script>
+		<script type="text/javascript" src = "__PUBLIC__/js/admin_toolbar.js"></script>
+
+
+		<div class="wrap" id="main">
+		<div class="form-horizontal" role="form">
+		  	<div class="form-group">
+			      	<label for="user_name" class="col-sm-2 control-label">用户名：</label>
+			      	<div class="col-sm-3">
+			         	<input type="text" class="form-control" name="user_name"  value="<?php echo $userdata['user_name'];?>" readonly>
+			      	</div>
+			   	</div>
+			   	
+			   	<div class="form-group">
+			      	<label for="password" class="col-sm-2 control-label">密码：</label>
+			      	<div class="col-sm-3">
+			         	<input type="text" class="form-control" name="user_pw" value="<?php echo $userdata['user_pwd'];?>" readonly>
+			      	</div>
+			   	</div>
+			   
+			   	<div class="form-group">
+			      	<label for="user_email" class="col-sm-2 control-label"> 电子邮箱：</label>
+			      	<div class="col-sm-3">
+			         	<input type="text" class="form-control" name="user_email"  value="<?php echo $userdata['user_email'];?>" readonly>
+			      	</div>
+			   	</div>
+			   
+			    <div class="form-group">
+			      	<div class="col-sm-offset-2 col-sm-10">
+			         	<a href="<?php echo  U('Admin/updateInfo'); ?>"> <input type="button" class="btn btn-info" value="修改"> </a>
+			     	</div>
+			   	</div>
+			  </div>
+		</div>
+		<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/bootstrap-dropdown.js"></script>
+	</body>
+	
+</html>

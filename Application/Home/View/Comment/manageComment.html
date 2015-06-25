@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/general.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/comment.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/tmp.css"/>
+   <link href="__PUBLIC__/css/lib/style.css" media="screen" rel="stylesheet">
+</head>
+<body>
+	<script type="text/javascript">
+    var index_url = '<?php echo U("Home/index/Index")?>';
+    var user_name_url = '<?php echo session("user_name") ?>';
+    var comment_manage_url = '<?php  echo U("Comment/manageComment") ?>';
+    var show_info_url = '<?php  echo U("User/showInfo") ?>';
+    var follow_list_url = '<?php  echo U("User/followList") ?>';
+    var logout_url = '<?php echo U("User/logout")?>';
+    var login_url = '<?php echo U("User/login")?>';
+    var search_url = '<?php echo U("Home/Search/SearchResult")?>';
+    var manage_course_url = '<?php echo U("Home/Course/manageCourse")?>';
+  </script>
+  <script type="text/javascript" src = "__PUBLIC__/js/home_toolbar.js"></script>
+ 	<div class="wrap" id="main">
+
+
+              <div class="panel-body">
+              <!-- a comment start -->
+                <div class="comment-list clearfix" id="comments">
+                  <ol>
+                    <?php  foreach($comment as $key => $value): ?>
+                    <li class="comment">
+                      <div class="comment-body">
+                        <div class="inner">
+                          <div class="comment-arrow"></div>
+                          <div class="comment-avatar">
+                            <div class="avatar">
+                              <?php  if (array_key_exists($value['username'], $usernames)){ ?>
+                          <img src="<?php  echo $usernames[$value['username']]; ?>" alt="" />
+                          <?php  } else { ?>
+                              <img src="__PUBLIC__/images/temp/man.png" alt="" />
+                              <?php } ?>
+                              <span class="time"> <a href="<?php echo U('Comment/deleteComment').'?comment_id='.$value['comment_id']; ?>">删除评论 </a></span>
+                         
+                            </div>
+                          </div>
+
+                          <div class="comment-text">
+                          <div class="comment-author clearfix">
+                            <a href="#" class="link-author"><?php echo $value['username'];  ?></a>
+
+                      <span class="comment_school"><?php echo $value["school"] ?></span>
+                      <span class="comment_college"><?php echo $value["college"] ?></span>
+                      <span class="comment_teacher"><?php echo $value["teacher"] ?></span>
+                      <span class="comment_course"><?php echo $value["course"] ?></span>
+                        
+                            <span class="comment-date"><?php echo $value['comment_time'];  ?></span>
+                          </div>
+                          <div class="comment-entry">
+                            <p><?php echo $value['comment_content'];  ?></p>
+                          </div>
+                          </div>
+
+                          <div class="clear"></div>
+                        </div>
+
+
+                      </div>
+                    </li>
+                  <?php endforeach; ?>
+                  </ol>
+                </div>
+          <!-- a comment end, add as many comment as you want. -->
+
+     
+     
+  	</div>
+</body>
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap-dropdown.js"></script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="stylesheet" href="__PUBLIC__/css/normalize.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/general.css">
+	<link rel="stylesheet" href="__PUBLIC__/css/create.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/tmp.css"/>
+</head>
+<body>
+	<script type="text/javascript">
+	  var index_url = '<?php echo U("Home/index/Index")?>';
+	  var user_name_url = '<?php echo session("user_name") ?>';
+	  var comment_manage_url = '<?php  echo U("Comment/manageComment") ?>';
+	  var show_info_url = '<?php  echo U("User/showInfo") ?>';
+	  var follow_list_url = '<?php  echo U("User/followList") ?>';
+	  var logout_url = '<?php echo U("User/logout")?>';
+	  var login_url = '<?php echo U("User/login")?>';
+	  var search_url = '<?php echo U("Home/Search/SearchResult")?>';
+	  var manage_course_url = '<?php echo U("Home/Course/manageCourse")?>';
+	</script>
+	<script type="text/javascript" src = "__PUBLIC__/js/home_toolbar.js"></script>
+    </div>
+    <div class="wrap" id="main">
+  		<form action=<?php echo U("addTeacher") ?> method="post" id="formid">
+			<span>学校：<select id="school" name="school_id">
+				<option selected="selected" value="0">---</option>
+			<?php foreach ($school as $key => $value): ?>
+				<option value=<?php echo $key ?> >
+					<?php echo $value ?>
+				</option> 			
+			<?php endforeach;?>
+			</select></span>
+
+			<span>学院：<select id="college" name="college_id">
+				<option selected="selected" value="0">---</option>
+			</select></span>
+
+			<span>姓名：<input type="text" name="teacher_id" id="name"></input></span>
+			<div id="txt">
+				<textarea name="comment_content" rows="6" cols="100" onfocus="if (value =='请输入教师简介..'){value =''}"
+    				onblur="if (value ==''){value='请输入教师简介..'}" >请输入教师简介..</textarea>
+    		</div>
+			<p><input type="submit" value="确认" id="addbtn"/></p>
+		</form>
+      	<div id="feeds">
+      	</div>
+    </div>
+
+</body>
+<!--
+<script type="text/javascript">
+  var baseurl = "<?php echo U('/Home/Teacher/addTeacher'); ?>" + "?school_id=";
+</script>
+-->
+<script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/create.js"></script>
+</html>

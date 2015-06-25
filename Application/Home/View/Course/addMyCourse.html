@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="__PUBLIC__/css/normalize.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/general.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style2.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/tmp.css"/>
+	    <link href="__PUBLIC__/css/lib/style.css" media="screen" rel="stylesheet">
+
+<!-- scripts -->
+
+		
+	</head>
+	<body>
+	<script type="text/javascript">
+	  var index_url = '<?php echo U("Home/index/Index")?>';
+	  var user_name_url = '<?php echo session("user_name") ?>';
+	  var comment_manage_url = '<?php  echo U("Comment/manageComment") ?>';
+	  var show_info_url = '<?php  echo U("User/showInfo") ?>';
+	  var follow_list_url = '<?php  echo U("User/followList") ?>';
+	  var logout_url = '<?php echo U("User/logout")?>';
+	  var login_url = '<?php echo U("User/login")?>';
+	  var search_url = '<?php echo U("Home/Search/SearchResult")?>';
+	  var manage_course_url = '<?php echo U("Home/Course/manageCourse")?>';
+	</script>
+	<script type="text/javascript" src = "__PUBLIC__/js/home_toolbar.js"></script>
+
+		<div class="wrap" id="main">
+			<form action=<?php echo U("Course/addMyCourse") ?> method="post" id="formid">
+
+				<div class="form-group">
+					<label class="mylabel-contrl2">学校：</label>
+						<select id="school" name="school_id" class="select-control" >
+							<option selected="selected" value="">---</option>
+							<?php foreach ($school as $key => $value): ?>
+							<option value=<?php echo $key ?> >
+							<?php echo $value ?>
+							</option> 			
+							<?php endforeach;?>
+						</select>
+				</div>
+
+				<div class="form-group">
+					<label class="mylabel-contrl2">学院：</label>
+					
+						<select id="college" name="college_id" class="select-control">
+							<option selected="selected" value="">---</option>
+						</select>
+				</div>
+
+				<div class="form-group">
+					<label class="mylabel-contrl2">教师：</label>
+				
+						<select id="teacher" name="teacher_id" class="select-control" >
+							<option selected="selected" value="">---</option>
+							
+						</select>
+				</div>
+
+				<div class="form-group">
+					<label class="mylabel-contrl2">课程：</label>
+					
+						<select id="course" name="course_id" class="select-control">
+							<option selected="selected" value="">---</option>
+						</select>
+				</div>
+				
+				<div class="form-group">	
+				<div class="input-group col-sm-offset-2 col-sm-10">
+			         <button type="submit" class="btn btn-info">提交</button>
+			     	</div>
+				</div>
+			</form>
+
+
+          <!-- a comment end, add as many comment as you want. -->
+              </div>
+        <script type="text/javascript" src="__PUBLIC__/js/jquery-2.1.4.min.js"></script>
+		<script	type="text/javascript" src="__PUBLIC__/js/general.js"></script>
+		<script	type="text/javascript" src="__PUBLIC__/js/addmycourse.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/js/bootstrap-dropdown.js"></script>
+	</body>
+</html>
